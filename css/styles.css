@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+}
+
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary_inner {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border: 1px solid #d2beff;
+  font-weight: bold;
+  color: #025;
+}
+
+.icon {
+  display: block;
+  position: relative;
+  width: 24px;
+  margin-left: 6px;
+  flex-shrink: 0;
+  transform-origin: center 43%;
+  transition: transform 0.4s;
+}
+
+/* is-openedクラスが付加されたときのスタイル */
+details.is-opened .icon {
+  transform: rotate(180deg);
+}
+
+/* アイコンのバーのスタイル */
+.icon::before,
+.icon::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 3px;
+  background-color: #7050ff;
+}
+
+.icon::before {
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.icon::after {
+  right: 0;
+  transform: rotate(-45deg);
+}
+
+/* -------- アコーディオンの中身のスタイル -------- */
+.content {
+  overflow: hidden;
+  background-color: #f0f2ff;
+}
+
+.content_inner {
+  padding: 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* -------- レイアウト用のスタイル -------- */
+.wrapper {
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper details {
+  margin-bottom: 16px;
+}
+
+.wrapper details:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
