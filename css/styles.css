@@ -2,15 +2,16 @@ body {
   margin: 0;
 }
 
-summary {
+.accordion.is-open .accordion__content {
+  grid-template-rows: 1fr;
+  transition: grid-template-rows .6s ease-in-out;
+}
+
+.accordion__title {
   display: block;
 }
 
-summary::-webkit-details-marker {
-  display: none;
-}
-
-.summary_inner {
+.accordion__titleInner {
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -32,8 +33,8 @@ summary::-webkit-details-marker {
   transition: transform 0.4s;
 }
 
-/* is-openedクラスが付加されたときのスタイル */
-details.is-opened .icon {
+/* is-openクラスが付加されたときのスタイル */
+.accordion.is-open .icon {
   transform: rotate(180deg);
 }
 
@@ -59,15 +60,21 @@ details.is-opened .icon {
 }
 
 /* -------- アコーディオンの中身のスタイル -------- */
-.content {
-  overflow: hidden;
-  background-color: #f0f2ff;
+.accordion__content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .6s ease-in-out;
 }
 
-.content_inner {
+.accordion__contentInner {
+  overflow: hidden;
+}
+
+.accordion__contentBox {
   padding: 24px 48px;
   display: flex;
   flex-direction: column;
+  background-color: #f0f2ff;
   gap: 16px;
 }
 
@@ -75,16 +82,10 @@ details.is-opened .icon {
 .wrapper {
   width: 700px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.wrapper details {
-  margin-bottom: 16px;
-}
-
-.wrapper details:last-child {
-  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding-top: 20px;
 }
 
 @media (max-width: 760px) {
