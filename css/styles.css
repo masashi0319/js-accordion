@@ -4,7 +4,6 @@ body {
 
 .accordion.is-open .accordion__content {
   grid-template-rows: 1fr;
-  transition: grid-template-rows .6s ease-in-out;
 }
 
 .accordion__title {
